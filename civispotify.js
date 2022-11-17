@@ -46,8 +46,14 @@ if(accessToken){
 
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = e => {
-      if (e.readyState == 4 && e.status == 200) {
-        console.log(e);
+      if (xhttp.readyState === XMLHttpRequest.DONE) {
+        const status = xhttp.status;
+        if (status === 0 || (status >= 200 && status < 400)) {
+          // The request has been completed successfully
+          console.log(xhttp.responseText);
+        } else {
+          // Oh no! There has been an error with the request!
+        }
       }
   };
   xhttp.open("GET", url, false);
