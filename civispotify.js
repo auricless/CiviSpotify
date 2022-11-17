@@ -42,7 +42,7 @@ console.info(expiresIn);
 console.info(accessstate);
 
 if(accessToken){
-  url = 'https://api.spotify.com/v1/me/player/play';
+  url = 'https://api.spotify.com/v1/me/player';
 
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = e => {
@@ -52,5 +52,6 @@ if(accessToken){
   };
   xhttp.open("GET", url, false);
   xhttp.setRequestHeader('Authorization', `Bearer ${accessToken}`);
+  xhttp.setRequestHeader('Content-Type', `application/json`);
   xhttp.send();
 }
