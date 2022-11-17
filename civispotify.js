@@ -45,12 +45,12 @@ if(accessToken){
   url = 'https://api.spotify.com/v1/me/player/play';
 
   var xhttp = new XMLHttpRequest();
-  xhttp.setRequestHeader('Authorization', `Bearer ${accessToken}`);
   xhttp.onreadystatechange = e => {
       if (e.readyState == 4 && e.status == 200) {
         console.log(e);
       }
   };
   xhttp.open("GET", url, false);
+  xhttp.setRequestHeader('Authorization', `Bearer ${accessToken}`);
   xhttp.send();
 }
