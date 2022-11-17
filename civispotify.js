@@ -22,3 +22,28 @@ url += '&redirect_uri=' + redirect_uri;
 url += '&state=' + encodeURIComponent(state);
 
 console.info(url)
+
+const urlParams = new URLSearchParams(window.location.search);
+const accessToken = urlParams.get('access_token');
+const tokenType = urlParams.get('token_type');
+const expiresIn = urlParams.get('expires_in');
+const state = urlParams.get('state');
+
+console.info(accessToken);
+console.info(tokenType);
+console.info(expiresIn);
+console.info(state);
+
+if(accessToken){
+  url = 'https://api.spotify.com/v1/me/player/play';
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.setRequestHeader('Authorization', `Bearer ${accessToken}`);
+  xhttp.onreadystatechange = e => {
+      if (e.readyState == 4 && e.status == 200) {
+        console.log(e);
+      }
+  };
+  xhttp.open("GET", url, false);
+  xhttp.send();
+}
