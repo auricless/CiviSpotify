@@ -27,12 +27,12 @@ const urlParams = new URLSearchParams(window.location.search);
 const accessToken = urlParams.get('access_token');
 const tokenType = urlParams.get('token_type');
 const expiresIn = urlParams.get('expires_in');
-const state = urlParams.get('state');
+const accessstate = urlParams.get('state');
 
 console.info(accessToken);
 console.info(tokenType);
 console.info(expiresIn);
-console.info(state);
+console.info(accessstate);
 
 if(accessToken){
   url = 'https://api.spotify.com/v1/me/player/play';
