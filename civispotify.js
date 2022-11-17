@@ -27,7 +27,7 @@ var auth = {};
 var urlParamsStr = window.location.href.replace(window.location.origin + "/CiviSpotify/#", "");
 urlParamsArr = urlParamsStr.split("&");
 for(var i = 0; i < urlParamsArr.length; i++){
-  var param = urlParamsArr[i].split("%");
+  var param = urlParamsArr[i].split("=");
   auth[param[0]] = param[1];
 }
 
