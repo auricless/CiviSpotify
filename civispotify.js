@@ -23,11 +23,18 @@ url += '&state=' + encodeURIComponent(state);
 
 console.info(url)
 
-const urlParams = new URLSearchParams(window.location.search);
-const accessToken = urlParams.get('access_token');
-const tokenType = urlParams.get('token_type');
-const expiresIn = urlParams.get('expires_in');
-const accessstate = urlParams.get('state');
+var auth = {};
+var urlParamsStr = window.location.href.replace(window.location.origin + "/CiviSpotify/#", "");
+urlParamsArr = urlParamsStr.split("&");
+for(var i = 0; i < urlParamsArr.length; i++){
+  var param = urlParamsArr[i].split("%");
+  auth[param[0]] = param[1];
+}
+
+const accessToken = auth['access_token'];
+const tokenType = auth['token_type'];
+const expiresIn = auth['expires_in'];
+const accessstate = auth['state'];
 
 console.info(accessToken);
 console.info(tokenType);
