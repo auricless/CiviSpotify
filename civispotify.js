@@ -12,7 +12,7 @@ var client_id = '8018871c46834cdd805dddf3e33c33d7';
 var redirect_uri = 'https://auricless.github.io/CiviSpotify/';
 var state = generateRandomString(16);
 
-var scope = 'user-read-private user-read-email user-read-playback-state';
+var scope = 'user-read-private user-read-email user-read-playback-state user-read-currently-playing';
 
 var url = 'https://accounts.spotify.com/authorize';
 url += '?response_type=token';
